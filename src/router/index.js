@@ -2,6 +2,8 @@
 import VueRouter from 'vue-router'
 import Login from '../pages/Login.vue'
 import Home from '../pages/Home.vue'
+import Welcome from '../pages/Welcome.vue'
+import User from '../pages/user/User.vue'
 
 // 创建并暴露路由器
 const router = new VueRouter({
@@ -13,7 +15,18 @@ const router = new VueRouter({
         },
         {
             path: '/home',
-            component: Home
+            component: Home,
+            redirect: '/welcome',
+            children: [
+                {
+                    path: '/welcome',
+                    component: Welcome
+                },
+                {
+                    path: '/users',
+                    component: User
+                }
+            ]
         }
     ]
 })

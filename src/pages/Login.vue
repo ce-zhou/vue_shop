@@ -23,7 +23,7 @@
         <!-- 密码 -->
         <el-form-item prop="password">
           <el-input
-            v-model="loginForm.password"
+            v-model.number="loginForm.password"
             prefix-icon="iconfont icon-password1"
             show-password
           >
@@ -81,7 +81,7 @@ export default {
       this.$refs.loginFormRef.validate((valid) => {
         if (!valid) return;
         this.$http
-          .post("http://127.0.0.1:8888/api/private/v1/login", this.loginForm)
+          .post("/login", this.loginForm)
           .then((response) => {
             if (response.data.meta.status === 200) {
               this.$message.success(`${response.data.meta.msg}`);
