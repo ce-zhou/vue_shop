@@ -11,6 +11,9 @@ import './assets/css/global.css'
 // 引入字体库
 import './assets/font/iconfont.css'
 
+// 全局引入tree-table
+import treeTable from 'vue-table-with-tree-grid'
+
 // 配置全局的axios
 import axios from 'axios'
 // 配置请求根路径
@@ -23,6 +26,8 @@ axios.interceptors.request.use(config => {
 Vue.prototype.$http = axios
 
 Vue.config.productionTip = false
+
+Vue.component('tree-table', treeTable)
 
 // 应用vue-router
 Vue.use(vueRouter)
