@@ -7,6 +7,7 @@ import User from '../pages/user/User.vue'
 import Rights from '../pages/power/Rights.vue'
 import Roles from '../pages/power/Roles.vue'
 import Categories from '../pages/goods/Categories.vue'
+import Params from '../pages/goods/Params.vue'
 
 // 创建并暴露路由器
 const router = new VueRouter({
@@ -40,6 +41,10 @@ const router = new VueRouter({
                 {
                     path: '/categories',
                     component: Categories
+                },
+                {
+                    path: '/params',
+                    component: Params
                 }
             ]
         }
