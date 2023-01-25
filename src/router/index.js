@@ -8,6 +8,9 @@ import Rights from '../pages/power/Rights.vue'
 import Roles from '../pages/power/Roles.vue'
 import Categories from '../pages/goods/Categories.vue'
 import Params from '../pages/goods/Params.vue'
+import List from '../pages/goods/List.vue'
+import Add from '../pages/goods/Add.vue'
+
 
 // 创建并暴露路由器
 const router = new VueRouter({
@@ -45,6 +48,14 @@ const router = new VueRouter({
                 {
                     path: '/params',
                     component: Params
+                },
+                {
+                    path: '/goods',
+                    component: List
+                },
+                {
+                    path: '/goods/add',
+                    component: Add
                 }
             ]
         }
