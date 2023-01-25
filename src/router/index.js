@@ -11,6 +11,8 @@ import Params from '../pages/goods/Params.vue'
 import List from '../pages/goods/List.vue'
 import Add from '../pages/goods/Add.vue'
 import Order from '../pages/order/Order.vue'
+import Report from '../pages/report/Report.vue'
+
 
 // 创建并暴露路由器
 const router = new VueRouter({
@@ -60,6 +62,10 @@ const router = new VueRouter({
                 {
                     path: '/orders',
                     component: Order
+                },
+                {
+                    path: '/reports',
+                    component: Report
                 }
             ]
         }
