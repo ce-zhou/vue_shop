@@ -49,14 +49,14 @@
             {{ scope.row.add_time | dateFormat }}
           </template>
         </el-table-column>
-        <el-table-column label="操作" width="70px">
+        <el-table-column label="操作" width="130px">
           <template slot-scope="scope">
-            <!-- <el-button
+            <el-button
               type="primary"
               icon="el-icon-edit"
               size="mini"
               @click="editDialog(scope.row)"
-            ></el-button> -->
+            ></el-button>
             <el-button
               type="danger"
               icon="el-icon-delete"
@@ -79,7 +79,7 @@
       </el-pagination>
     </el-card>
     <!-- 修改商品对话框 -->
-  <!--   <el-dialog title="提示" :visible.sync="editDialogVisible" width="50%"
+    <el-dialog title="提示" :visible.sync="editDialogVisible" width="50%"
     @close="editDialogClosed">
       <el-form
         :model="editForm"
@@ -102,7 +102,7 @@
         <el-button type="primary" @click="addEdit"
         >确 定</el-button>
       </span>
-    </el-dialog> -->
+    </el-dialog>
   </div>
 </template>
 
@@ -145,7 +145,7 @@ export default {
       const { data: res } = await this.$http.get("/goods", {
         params: this.queryInfo,
       });
-      console.log(res.data.goods);
+      // console.log(res.data.goods);
       if (res.meta.status !== 200)
         return this.$message.error("获取商品数据失败");
       this.goodsList = res.data.goods;
@@ -195,13 +195,14 @@ export default {
       this.editForm = res.data;
       this.editDialogVisible = true;
     },
-/*     // 重置编辑表单
+    // 重置编辑表单
     editDialogClosed() {
       this.$refs.editFormRef.resetFields()
     },
     // 点击按钮，对表单预验证并提交到后台
     async addEdit() {
       const {data: res} = await this.$http.put(`/goods/${this.editForm.goods_id}`, {
+        goods_cat: this.editForm.goods_cat,
         goods_name: this.editForm.goods_name,
         goods_price: this.editForm.goods_price,
         goods_number: this.editForm.goods_number,
@@ -211,8 +212,13 @@ export default {
         attrs: this.editForm.attrs,
 
       })
-      // console.log(res);
-    } */
+      if (res.meta.status !== 200) {
+        return this.$message.error('修改数据失败')
+      }
+      this.$message.success('修改数据成功')
+      this.getGoodsList()
+      this.editDialogVisible = false
+    }
   },
   created() {
     this.getGoodsList();

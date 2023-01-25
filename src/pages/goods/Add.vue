@@ -253,7 +253,7 @@ export default {
       const i = this.addForm.pics.findIndex((x) => x.pic === filePath);
       // 3.从pics数组中移除这一项
       this.addForm.pics.splice(i, 1);
-      console.log(this.addForm.pics);
+      // console.log(this.addForm.pics);
     },
     // 图片上传成功后的处理函数
     handleSuccess(response) {

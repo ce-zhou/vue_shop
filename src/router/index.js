@@ -10,7 +10,7 @@ import Categories from '../pages/goods/Categories.vue'
 import Params from '../pages/goods/Params.vue'
 import List from '../pages/goods/List.vue'
 import Add from '../pages/goods/Add.vue'
-
+import Order from '../pages/order/Order.vue'
 
 // 创建并暴露路由器
 const router = new VueRouter({
@@ -56,6 +56,10 @@ const router = new VueRouter({
                 {
                     path: '/goods/add',
                     component: Add
+                },
+                {
+                    path: '/orders',
+                    component: Order
                 }
             ]
         }
